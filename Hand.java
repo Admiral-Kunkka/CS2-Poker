@@ -36,10 +36,20 @@ public class Hand implements Comparable {
    public String handValue() {
      return "TODO: String of Best Hand; may need helper methods";
    }
+   /*private String isRoyalFlush(){
 
+   }
+   */
    public int compareTo(Object x){
       Hand other = (Hand)x;
       //TODO: Compare hands by ordering above; return -1, 1, or 0
-      return 1;
+      for (int x=0; x<6; x++) //cycle through values
+       {
+           if (this.value[x]>that.value[x])
+               return 1;
+           else if (this.value[x]<that.value[x])
+               return -1;
+       }
+       return 0; //if hands are equal
    }
 }
