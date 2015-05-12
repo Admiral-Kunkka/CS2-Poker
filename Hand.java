@@ -83,7 +83,15 @@ public class Hand implements Comparable {
      return pair1 && pair2;
    }
 
+   private Card Highestcard(){
+     Card max = hand.get(1);
+     for(Card c : hand){
+       if(c.value > max.value)
+        max = c;
 
+     }
+     return max;
+   }
 
 
    public int compareTo(Object x){
