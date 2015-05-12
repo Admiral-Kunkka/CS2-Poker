@@ -34,7 +34,16 @@ public class Hand implements Comparable {
    WORST
    */
    public String handValue() {
-     return "";
+     if(isFlush() && isStraight() && hand.get(0).value == 10) return "Royal Flush";
+     if(isFlush() && isStraight()) return "Stright FLush";
+     if(hasRow(4)) return "4 of a Kind";
+     if(isFullHouse()) return "Full House";
+     if(isFlush()) return "Flush";
+     if(isStraight()) return "Straight";
+     if(hasRow(3)) return "3 of a Kind";
+     if(isTwoPair()) return "Two Pair";
+     if(hasRow(2)) return "One Pair";
+     return Highestcard().toString() + "Highest Card";
    }
    private boolean isFlush(){
      String suit =hand.get(0).suit;
@@ -84,7 +93,7 @@ public class Hand implements Comparable {
    }
 
    private Card Highestcard(){
-     Card max = hand.get(1);
+     Card max = hand.get(0);
      for(Card c : hand){
        if(c.value > max.value)
         max = c;
